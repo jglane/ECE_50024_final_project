@@ -13,7 +13,7 @@ for gpu in gpus:
 
 IMG_DIM = 256
 
-ds, ds_info = tfds.load('cycle_gan/apple2orange', with_info=True, as_supervised=True)
+ds, ds_info = tfds.load('cycle_gan/horse2zebra', with_info=True, as_supervised=True)
 
 ds_train_A = ds['trainA']
 ds_train_B = ds['trainB']
