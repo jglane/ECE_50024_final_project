@@ -11,7 +11,7 @@ gpus = tf.config.experimental.list_physical_devices('GPU')
 for gpu in gpus:
     tf.config.experimental.set_memory_growth(gpu, True)
 
-IMG_DIM = 128
+IMG_DIM = 256
 
 ds, ds_info = tfds.load('cycle_gan/apple2orange', with_info=True, as_supervised=True)
 
@@ -79,7 +79,10 @@ def build_generator():
     model.add(tfa.layers.InstanceNormalization())
     model.add(tf.keras.layers.ReLU())
     
-    # 6 x R256
+    # 9 x R256
+    model.add(Residual(filters=256, kernel_size=3, strides=1))
+    model.add(Residual(filters=256, kernel_size=3, strides=1))
+    model.add(Residual(filters=256, kernel_size=3, strides=1))
     model.add(Residual(filters=256, kernel_size=3, strides=1))
     model.add(Residual(filters=256, kernel_size=3, strides=1))
     model.add(Residual(filters=256, kernel_size=3, strides=1))
@@ -121,7 +124,7 @@ def build_discriminator():
     model.add(tf.keras.layers.LeakyReLU(0.2))
     
     # C512
-    model.add(tf.keras.layers.Conv2D(filters=512, kernel_size=4, strides=2, padding='same'))
+    model.add(tf.keras.layers.Conv2D(filters=512, kernel_size=4, strides=2))
     model.add(tfa.layers.InstanceNormalization())
     model.add(tf.keras.layers.LeakyReLU(0.2))
 
@@ -139,6 +142,7 @@ D_Y = build_discriminator()
 loss = tf.keras.losses.BinaryCrossentropy(from_logits=True)
 lambd = 10
 
+# Loss functions
 def discriminator_loss(real, fake):
     real_loss = loss(tf.ones_like(real), real)
     fake_loss = loss(tf.zeros_like(fake), fake)
@@ -153,13 +157,14 @@ def cycle_loss(real, cycled):
 def identity_loss(real, same):
     return lambd * tf.reduce_mean(tf.abs(real - same)) / 2
 
+# Initialize optimizers
 learning_rate = 0.0002
-
 G_opt = tf.keras.optimizers.Adam(learning_rate=learning_rate, beta_1=0.5)
 F_opt = tf.keras.optimizers.Adam(learning_rate=learning_rate, beta_1=0.5)
 D_X_opt = tf.keras.optimizers.Adam(learning_rate=learning_rate, beta_1=0.5)
 D_Y_opt = tf.keras.optimizers.Adam(learning_rate=learning_rate, beta_1=0.5)
 
+# Custom training step
 @tf.function()
 def train_step(real_X, real_Y):
     with tf.GradientTape(persistent=True) as tape:
@@ -212,9 +217,10 @@ dir = 'results/' + str(time.time()).split('.')[0]
 os.mkdir(dir)
 os.mkdir(f'{dir}/img')
 
-# redirect stdout to file
+# Redirect stdout to file
 sys.stdout = open(f'{dir}/log.txt', 'w')
 
+# Train the model
 epochs = 100
 losses_list = []
 for epoch in range(epochs):
@@ -248,5 +254,5 @@ plt.legend()
 plt.savefig(f'{dir}/loss.png')
 
 # Save the model
-#G.save(f'{dir}/G')
-#F.save(f'{dir}/F')
+G.save(f'{dir}/G')
+F.save(f'{dir}/F')
