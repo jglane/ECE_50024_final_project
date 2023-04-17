@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import time
 import os
+import sys
 
 gpus = tf.config.experimental.list_physical_devices('GPU')
 for gpu in gpus:
@@ -12,7 +13,7 @@ for gpu in gpus:
 
 IMG_DIM = 128
 
-ds, ds_info = tfds.load('cycle_gan/horse2zebra', with_info=True, as_supervised=True)
+ds, ds_info = tfds.load('cycle_gan/apple2orange', with_info=True, as_supervised=True)
 
 ds_train_A = ds['trainA']
 ds_train_B = ds['trainB']
@@ -65,17 +66,17 @@ def build_generator():
 
     # c7s1-64
     model.add(tf.keras.layers.Conv2D(filters=64, kernel_size=7, strides=1, padding='same'))
-    model.add(tfa.layers.InstanceNormalization(axix=-1))
+    model.add(tfa.layers.InstanceNormalization())
     model.add(tf.keras.layers.ReLU())
 
     # d128
     model.add(tf.keras.layers.Conv2D(filters=128, kernel_size=3, strides=2, padding='same'))
-    model.add(tfa.layers.InstanceNormalization(axix=-1))
+    model.add(tfa.layers.InstanceNormalization())
     model.add(tf.keras.layers.ReLU())
 
     # d256
     model.add(tf.keras.layers.Conv2D(filters=256, kernel_size=3, strides=2, padding='same'))
-    model.add(tfa.layers.InstanceNormalization(axix=-1))
+    model.add(tfa.layers.InstanceNormalization())
     model.add(tf.keras.layers.ReLU())
     
     # 6 x R256
@@ -88,12 +89,12 @@ def build_generator():
 
     # u128
     model.add(tf.keras.layers.Conv2DTranspose(filters=128, kernel_size=3, strides=2, padding='same'))
-    model.add(tfa.layers.InstanceNormalization(axix=-1))
+    model.add(tfa.layers.InstanceNormalization())
     model.add(tf.keras.layers.ReLU())
 
     # u64
     model.add(tf.keras.layers.Conv2DTranspose(filters=64, kernel_size=3, strides=2, padding='same'))
-    model.add(tfa.layers.InstanceNormalization(axix=-1))
+    model.add(tfa.layers.InstanceNormalization())
     model.add(tf.keras.layers.ReLU())
 
     # c7s1-3
@@ -106,28 +107,26 @@ def build_discriminator():
     model.add(tf.keras.layers.Input((IMG_DIM, IMG_DIM, 3)))
     
     # C64
-    model.add(tf.keras.layers.Conv2D(filters=64, kernel_size=4, strides=2, padding='same'))
-    model.add(tfa.layers.InstanceNormalization(axix=-1))
+    model.add(tf.keras.layers.Conv2D(filters=64, kernel_size=4, strides=2))
     model.add(tf.keras.layers.LeakyReLU(0.2))
 
     # C128
-    model.add(tf.keras.layers.Conv2D(filters=128, kernel_size=4, strides=2, padding='same'))
-    model.add(tfa.layers.InstanceNormalization(axix=-1))
+    model.add(tf.keras.layers.Conv2D(filters=128, kernel_size=4, strides=2))
+    model.add(tfa.layers.InstanceNormalization())
     model.add(tf.keras.layers.LeakyReLU(0.2))
     
     # C256
-    model.add(tf.keras.layers.Conv2D(filters=256, kernel_size=4, strides=2, padding='same'))
-    model.add(tfa.layers.InstanceNormalization(axix=-1))
+    model.add(tf.keras.layers.Conv2D(filters=256, kernel_size=4, strides=2))
+    model.add(tfa.layers.InstanceNormalization())
     model.add(tf.keras.layers.LeakyReLU(0.2))
     
     # C512
     model.add(tf.keras.layers.Conv2D(filters=512, kernel_size=4, strides=2, padding='same'))
-    model.add(tfa.layers.InstanceNormalization(axix=-1))
+    model.add(tfa.layers.InstanceNormalization())
     model.add(tf.keras.layers.LeakyReLU(0.2))
 
-    model.add(tf.keras.layers.Flatten())
-    model.add(tf.keras.layers.Dropout(0.4)) # fine tune later
-    model.add(tf.keras.layers.Dense(1, activation='sigmoid'))
+    # Convolution to produce a 1D output
+    model.add(tf.keras.layers.Conv2D(filters=1, kernel_size=4, activation='sigmoid'))
 
     return model
 
@@ -212,6 +211,9 @@ def generate_img(generator, test_img: np.ndarray):
 dir = 'results/' + str(time.time()).split('.')[0]
 os.mkdir(dir)
 os.mkdir(f'{dir}/img')
+
+# redirect stdout to file
+sys.stdout = open(f'{dir}/log.txt', 'w')
 
 epochs = 100
 losses_list = []

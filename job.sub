@@ -16,4 +16,4 @@ module load cudnn/cuda-11.7_8.6
 module load use.own
 module load conda-env/my_tf_env-py3.8.5
 
-python simple.py
+python train.py
