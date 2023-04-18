@@ -6,6 +6,7 @@ import numpy as np
 import time
 import os
 import sys
+from util import *
 
 gpus = tf.config.experimental.list_physical_devices('GPU')
 for gpu in gpus:
@@ -13,35 +14,14 @@ for gpu in gpus:
 
 IMG_DIM = 256
 
-ds, ds_info = tfds.load('cycle_gan/horse2zebra', with_info=True, as_supervised=True)
+image_set = 'horse2zebra'
+ds, ds_info = tfds.load(f'cycle_gan/{image_set}', with_info=True, as_supervised=True)
 
 ds_train_A = ds['trainA']
 ds_train_B = ds['trainB']
 
 ds_test_A = ds['testA']
 ds_test_B = ds['testB']
-
-def resize_and_normalize(img: tf.Tensor):
-    img = tf.image.resize(img, (IMG_DIM, IMG_DIM))
-    img = img / 127.5 - 1 # normalize to [-1, 1]
-    return img
-
-@tf.function()
-def random_jitter(img: tf.Tensor):
-    img = tf.image.resize(img, [IMG_DIM + IMG_DIM // 10, IMG_DIM + IMG_DIM // 10], method=tf.image.ResizeMethod.NEAREST_NEIGHBOR) # add 10% to the size
-    img = tf.image.random_crop(img, size=(IMG_DIM, IMG_DIM, 3)) # random crop back to the original size
-    if tf.random.uniform(()) > 0.5: # 50% chance to flip the image
-        img = tf.image.flip_left_right(img)
-    return img
-
-def preprocess_image_train(img, label):
-    img = resize_and_normalize(img)
-    img = random_jitter(img)
-    return img
-
-def preprocess_image_test(img, label):
-    img = resize_and_normalize(img)
-    return img
 
 ds_train_A = ds_train_A.map(preprocess_image_train, num_parallel_calls=tf.data.experimental.AUTOTUNE).shuffle(ds_info.splits['trainA'].num_examples).batch(1)
 ds_train_B = ds_train_B.map(preprocess_image_train, num_parallel_calls=tf.data.experimental.AUTOTUNE).shuffle(ds_info.splits['trainB'].num_examples).batch(1)
@@ -206,14 +186,11 @@ def train_step(real_X, real_Y):
 
     return G_loss, F_loss, D_X_loss, D_Y_loss
 
-# Generate an image given a generator
-def generate_img(generator, test_img: np.ndarray):
-    prediction = generator(np.expand_dims(test_img, axis=0), training=False).numpy()[0]
-    img = np.concatenate((test_img, prediction), axis=1)
-    return img * 0.5 + 0.5
-
 # Visualize the training process
-dir = 'results/' + str(time.time()).split('.')[0]
+i = 0
+while f'{image_set}_{i}' in os.listdir('results'):
+    i += 1
+dir = f'results/{image_set}_{i}'
 os.mkdir(dir)
 os.mkdir(f'{dir}/img')
 
