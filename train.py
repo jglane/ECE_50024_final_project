@@ -14,7 +14,7 @@ for gpu in gpus:
 
 IMG_DIM = 256
 
-image_set = 'horse2zebra'
+image_set = 'maps'
 ds, ds_info = tfds.load(f'cycle_gan/{image_set}', with_info=True, as_supervised=True)
 
 ds_train_A = ds['trainA']
@@ -203,21 +203,25 @@ losses_list = []
 for epoch in range(epochs):
     start = time.time()
 
+    # Loop through the training set
     print(f'Epoch: {epoch + 1}/{epochs} ', end='')
     for X, Y in tf.data.Dataset.zip((ds_train_A, ds_train_B)):
         G_loss, F_loss, D_X_loss, D_Y_loss = train_step(X, Y)
         print('.', end='')
     
+    # Choose random images from the test set
     test_A = next(iter(ds_test_A))[0]
     test_B = next(iter(ds_test_B))[0]
     gen_A = generate_img(G, test_A)
     gen_B = generate_img(F, test_B)
     plt.imsave(f'{dir}/img/epoch_{epoch + 1}.png', np.concatenate((gen_A, gen_B)))
 
+    # Log the losses for each epoch
     end = time.time()
     elapsed = np.round(end - start, 1)
     print(f'\n    G_loss: {G_loss:.4f}    F_loss: {F_loss:.4f}    D_X_loss: {D_X_loss:.4f}    D_Y_loss: {D_Y_loss:.4f}    Time: {elapsed} s\n')
 
+    # Save the losses for plotting
     losses_list.append(np.array([G_loss, F_loss, D_X_loss, D_Y_loss]))
 
 # Plot the losses
