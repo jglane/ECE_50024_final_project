@@ -6,7 +6,7 @@ import numpy as np
 import time
 import os
 import sys
-from util import *
+from util import preprocess_image_train, preprocess_image_test, generate_img
 
 gpus = tf.config.experimental.list_physical_devices('GPU')
 for gpu in gpus:
