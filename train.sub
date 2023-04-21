@@ -3,9 +3,10 @@
 
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
-#SBATCH --gpus-per-node=1
-#SBATCH -t 30:00
-#SBATCH -A debug
+#SBATCH --gpus-per-node=3
+#SBATCH --mem-per-gpu=50G
+#SBATCH -t 4:00:00
+#SBATCH -A standby
 
 module purge
 module load anaconda

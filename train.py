@@ -34,17 +34,20 @@ D_X = build_discriminator(IMG_DIM)
 D_Y = build_discriminator(IMG_DIM)
 
 # Initialize optimizers
-learning_rate = 0.0002
-G_opt = tf.keras.optimizers.Adam(learning_rate=learning_rate, beta_1=0.5)
-F_opt = tf.keras.optimizers.Adam(learning_rate=learning_rate, beta_1=0.5)
-D_X_opt = tf.keras.optimizers.Adam(learning_rate=learning_rate, beta_1=0.5)
-D_Y_opt = tf.keras.optimizers.Adam(learning_rate=learning_rate, beta_1=0.5)
+G_opt = tf.keras.optimizers.Adam(learning_rate=0.0002, beta_1=0.5)
+F_opt = tf.keras.optimizers.Adam(learning_rate=0.0002, beta_1=0.5)
+D_X_opt = tf.keras.optimizers.Adam(learning_rate=0.0002, beta_1=0.5)
+D_Y_opt = tf.keras.optimizers.Adam(learning_rate=0.0002, beta_1=0.5)
 
 # Train the model
 lambd = 10
 cycleGAN = CycleGAN(G, F, D_X, D_Y)
 cycleGAN.compile(G_opt, F_opt, D_X_opt, D_Y_opt, GeneratorLoss(), DiscriminatorLoss(), CycleLoss(lambd), IdentityLoss(lambd))
-hist = cycleGAN.fit(tf.data.Dataset.zip((ds_train_A, ds_train_B)), epochs=100, callbacks=[GenImg(ds_test_A, ds_test_B, image_set)])
+hist = cycleGAN.fit(tf.data.Dataset.zip((ds_train_A, ds_train_B)), epochs=200, verbose=2,
+                    callbacks=[
+                        GenImg(ds_test_A, ds_test_B, image_set), 
+                        tf.keras.callbacks.LearningRateScheduler(lambda epoch: 0.0002 if epoch < 100 else 0.0002 - 0.0002 * (epoch - 100) / 100)
+                    ])
 
 # Plot the loss
 plt.figure()
