@@ -6,7 +6,11 @@ from util import resize_and_normalize, generate_img
 
 args = sys.argv
 
-image_set = args[1]
+if args[1] == 'summer2winter_yosemite':
+    image_set = 'summer2winter'
+else:
+    image_set = args[1]
+
 set_list = image_set.split('2')
 
 G = tf.saved_model.load(f'results/{image_set}/G')
@@ -22,3 +26,4 @@ gen_B = generate_img(F, test_B)
 plt.imsave(f'test/gen_{image_set}.jpg', np.concatenate((gen_A, gen_B)))
 
 # cmd: /home/jglane/.conda/envs/cent7/2020.11-py38/my_tf_env/bin/python test.py apple2orange
+# http://efrosgans.eecs.berkeley.edu/cyclegan/datasets/
