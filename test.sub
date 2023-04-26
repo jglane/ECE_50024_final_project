@@ -1,5 +1,5 @@
 #!/bin/bash
-# FILENAME: job.sub
+# FILENAME: test.sub
 
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1

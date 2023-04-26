@@ -1,0 +1,462 @@
+The following modules were not unloaded:
+  (Use "module --force purge" to unload all):
+
+  1) xalt/1.1.2
+2023-04-21 10:24:11.395199: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-04-21 10:24:12.241890: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2023-04-21 10:24:16.340161: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1635] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 20607 MB memory:  -> device: 0, name: NVIDIA A10, pci bus id: 0000:25:00.0, compute capability: 8.6
+2023-04-21 10:24:16.341276: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1635] Created device /job:localhost/replica:0/task:0/device:GPU:1 with 20607 MB memory:  -> device: 1, name: NVIDIA A10, pci bus id: 0000:81:00.0, compute capability: 8.6
+2023-04-21 10:24:16.342118: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1635] Created device /job:localhost/replica:0/task:0/device:GPU:2 with 20607 MB memory:  -> device: 2, name: NVIDIA A10, pci bus id: 0000:e2:00.0, compute capability: 8.6
+2023-04-21 10:24:17.729501: I tensorflow/core/common_runtime/executor.cc:1197] [/device:CPU:0] (DEBUG INFO) Executor start aborting (this does not indicate an error and you can ignore this message): INVALID_ARGUMENT: You must feed a value for placeholder tensor 'Placeholder/_37' with dtype int64 and shape [1]
+	 [[{{node Placeholder/_37}}]]
+2023-04-21 10:24:17.730010: I tensorflow/core/common_runtime/executor.cc:1197] [/device:CPU:0] (DEBUG INFO) Executor start aborting (this does not indicate an error and you can ignore this message): INVALID_ARGUMENT: You must feed a value for placeholder tensor 'Placeholder/_1' with dtype string and shape [1]
+	 [[{{node Placeholder/_1}}]]
+Epoch 1/200
+2023-04-21 10:24:40.555522: I tensorflow/compiler/xla/stream_executor/cuda/cuda_dnn.cc:424] Loaded cuDNN version 8600
+2023-04-21 10:24:43.059099: I tensorflow/compiler/xla/service/service.cc:169] XLA service 0x2b95a98adbb0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2023-04-21 10:24:43.059166: I tensorflow/compiler/xla/service/service.cc:177]   StreamExecutor device (0): NVIDIA A10, Compute Capability 8.6
+2023-04-21 10:24:43.059172: I tensorflow/compiler/xla/service/service.cc:177]   StreamExecutor device (1): NVIDIA A10, Compute Capability 8.6
+2023-04-21 10:24:43.059175: I tensorflow/compiler/xla/service/service.cc:177]   StreamExecutor device (2): NVIDIA A10, Compute Capability 8.6
+2023-04-21 10:24:43.074505: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:269] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+2023-04-21 10:24:43.304186: I ./tensorflow/compiler/jit/device_compiler.h:180] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+2023-04-21 10:27:20.274582: I tensorflow/core/common_runtime/executor.cc:1197] [/device:CPU:0] (DEBUG INFO) Executor start aborting (this does not indicate an error and you can ignore this message): INVALID_ARGUMENT: You must feed a value for placeholder tensor 'Placeholder/_3' with dtype int64 and shape [1]
+	 [[{{node Placeholder/_3}}]]
+2023-04-21 10:27:20.275071: I tensorflow/core/common_runtime/executor.cc:1197] [/device:CPU:0] (DEBUG INFO) Executor start aborting (this does not indicate an error and you can ignore this message): INVALID_ARGUMENT: You must feed a value for placeholder tensor 'Placeholder/_4' with dtype int64 and shape [1]
+	 [[{{node Placeholder/_4}}]]
+2023-04-21 10:27:20.569275: I tensorflow/core/common_runtime/executor.cc:1197] [/device:CPU:0] (DEBUG INFO) Executor start aborting (this does not indicate an error and you can ignore this message): INVALID_ARGUMENT: You must feed a value for placeholder tensor 'Placeholder/_4' with dtype int64 and shape [1]
+	 [[{{node Placeholder/_4}}]]
+2023-04-21 10:27:20.569656: I tensorflow/core/common_runtime/executor.cc:1197] [/device:CPU:0] (DEBUG INFO) Executor start aborting (this does not indicate an error and you can ignore this message): INVALID_ARGUMENT: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype string and shape [1]
+	 [[{{node Placeholder/_0}}]]
+995/995 - 183s - G_loss: 9.0978 - F_loss: 7.6594 - D_X_loss: 0.4581 - D_Y_loss: 0.2440 - lr: 2.0000e-04 - 183s/epoch - 184ms/step
+Epoch 2/200
+995/995 - 149s - G_loss: 8.5581 - F_loss: 8.4626 - D_X_loss: 0.5078 - D_Y_loss: 0.5100 - lr: 2.0000e-04 - 149s/epoch - 150ms/step
+Epoch 3/200
+995/995 - 149s - G_loss: 5.9283 - F_loss: 5.8924 - D_X_loss: 0.7934 - D_Y_loss: 1.0112 - lr: 2.0000e-04 - 149s/epoch - 149ms/step
+Epoch 4/200
+995/995 - 149s - G_loss: 5.9041 - F_loss: 5.8467 - D_X_loss: 0.6795 - D_Y_loss: 0.6118 - lr: 2.0000e-04 - 149s/epoch - 149ms/step
+Epoch 5/200
+995/995 - 148s - G_loss: 5.7896 - F_loss: 6.3142 - D_X_loss: 0.5805 - D_Y_loss: 0.5724 - lr: 2.0000e-04 - 148s/epoch - 149ms/step
+Epoch 6/200
+995/995 - 148s - G_loss: 5.2524 - F_loss: 4.8903 - D_X_loss: 0.7989 - D_Y_loss: 0.6175 - lr: 2.0000e-04 - 148s/epoch - 149ms/step
+Epoch 7/200
+995/995 - 148s - G_loss: 5.1529 - F_loss: 5.0914 - D_X_loss: 0.7908 - D_Y_loss: 0.4864 - lr: 2.0000e-04 - 148s/epoch - 149ms/step
+Epoch 8/200
+995/995 - 148s - G_loss: 5.2884 - F_loss: 5.0367 - D_X_loss: 0.6405 - D_Y_loss: 0.6620 - lr: 2.0000e-04 - 148s/epoch - 149ms/step
+Epoch 9/200
+995/995 - 148s - G_loss: 5.2036 - F_loss: 5.8410 - D_X_loss: 0.6291 - D_Y_loss: 0.5123 - lr: 2.0000e-04 - 148s/epoch - 149ms/step
+Epoch 10/200
+995/995 - 148s - G_loss: 4.6302 - F_loss: 4.1677 - D_X_loss: 1.1079 - D_Y_loss: 0.6701 - lr: 2.0000e-04 - 148s/epoch - 149ms/step
+Epoch 11/200
+995/995 - 148s - G_loss: 3.6261 - F_loss: 4.6099 - D_X_loss: 0.6479 - D_Y_loss: 0.7406 - lr: 2.0000e-04 - 148s/epoch - 149ms/step
+Epoch 12/200
+995/995 - 148s - G_loss: 4.6002 - F_loss: 4.2885 - D_X_loss: 1.0076 - D_Y_loss: 0.9001 - lr: 2.0000e-04 - 148s/epoch - 149ms/step
+Epoch 13/200
+995/995 - 148s - G_loss: 3.7201 - F_loss: 3.7749 - D_X_loss: 0.7784 - D_Y_loss: 0.5293 - lr: 2.0000e-04 - 148s/epoch - 149ms/step
+Epoch 14/200
+995/995 - 148s - G_loss: 4.8538 - F_loss: 4.7095 - D_X_loss: 0.7451 - D_Y_loss: 0.5326 - lr: 2.0000e-04 - 148s/epoch - 149ms/step
+Epoch 15/200
+995/995 - 148s - G_loss: 3.8014 - F_loss: 3.5899 - D_X_loss: 0.5558 - D_Y_loss: 0.6053 - lr: 2.0000e-04 - 148s/epoch - 149ms/step
+Epoch 16/200
+995/995 - 148s - G_loss: 3.8980 - F_loss: 4.7442 - D_X_loss: 0.7657 - D_Y_loss: 0.6724 - lr: 2.0000e-04 - 148s/epoch - 149ms/step
+Epoch 17/200
+995/995 - 148s - G_loss: 4.9909 - F_loss: 5.8098 - D_X_loss: 0.5788 - D_Y_loss: 0.6808 - lr: 2.0000e-04 - 148s/epoch - 149ms/step
+Epoch 18/200
+995/995 - 148s - G_loss: 3.9515 - F_loss: 3.6245 - D_X_loss: 0.6113 - D_Y_loss: 0.5743 - lr: 2.0000e-04 - 148s/epoch - 149ms/step
+Epoch 19/200
+995/995 - 148s - G_loss: 3.8137 - F_loss: 3.9238 - D_X_loss: 0.3669 - D_Y_loss: 0.5701 - lr: 2.0000e-04 - 148s/epoch - 149ms/step
+Epoch 20/200
+995/995 - 148s - G_loss: 3.1622 - F_loss: 2.9574 - D_X_loss: 0.5726 - D_Y_loss: 0.6431 - lr: 2.0000e-04 - 148s/epoch - 149ms/step
+Epoch 21/200
+995/995 - 148s - G_loss: 3.7501 - F_loss: 4.2454 - D_X_loss: 0.6742 - D_Y_loss: 0.5896 - lr: 2.0000e-04 - 148s/epoch - 149ms/step
+Epoch 22/200
+995/995 - 148s - G_loss: 3.3981 - F_loss: 4.4359 - D_X_loss: 0.5095 - D_Y_loss: 0.5505 - lr: 2.0000e-04 - 148s/epoch - 149ms/step
+Epoch 23/200
+995/995 - 148s - G_loss: 4.4479 - F_loss: 3.8662 - D_X_loss: 0.8797 - D_Y_loss: 0.3237 - lr: 2.0000e-04 - 148s/epoch - 149ms/step
+Epoch 24/200
+995/995 - 148s - G_loss: 3.5802 - F_loss: 3.5530 - D_X_loss: 0.6899 - D_Y_loss: 0.6846 - lr: 2.0000e-04 - 148s/epoch - 149ms/step
+Epoch 25/200
+995/995 - 148s - G_loss: 4.3169 - F_loss: 4.2704 - D_X_loss: 0.6157 - D_Y_loss: 0.5094 - lr: 2.0000e-04 - 148s/epoch - 149ms/step
+Epoch 26/200
+995/995 - 148s - G_loss: 3.5926 - F_loss: 3.9086 - D_X_loss: 0.4667 - D_Y_loss: 0.6787 - lr: 2.0000e-04 - 148s/epoch - 149ms/step
+Epoch 27/200
+995/995 - 148s - G_loss: 3.4184 - F_loss: 2.9968 - D_X_loss: 0.5713 - D_Y_loss: 0.5370 - lr: 2.0000e-04 - 148s/epoch - 149ms/step
+Epoch 28/200
+995/995 - 147s - G_loss: 3.9045 - F_loss: 4.2363 - D_X_loss: 0.6694 - D_Y_loss: 0.7297 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 29/200
+995/995 - 147s - G_loss: 4.5090 - F_loss: 4.7355 - D_X_loss: 0.7080 - D_Y_loss: 0.8946 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 30/200
+995/995 - 147s - G_loss: 2.9206 - F_loss: 2.6621 - D_X_loss: 0.7228 - D_Y_loss: 0.7681 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 31/200
+995/995 - 147s - G_loss: 3.8685 - F_loss: 4.2707 - D_X_loss: 0.5527 - D_Y_loss: 0.4416 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 32/200
+995/995 - 147s - G_loss: 3.0226 - F_loss: 3.1437 - D_X_loss: 0.5130 - D_Y_loss: 0.6390 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 33/200
+995/995 - 147s - G_loss: 3.9005 - F_loss: 3.6994 - D_X_loss: 0.4630 - D_Y_loss: 0.5272 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 34/200
+995/995 - 147s - G_loss: 2.4094 - F_loss: 2.9267 - D_X_loss: 0.6615 - D_Y_loss: 0.6091 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 35/200
+995/995 - 147s - G_loss: 3.2795 - F_loss: 2.4905 - D_X_loss: 0.6483 - D_Y_loss: 0.6931 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 36/200
+995/995 - 147s - G_loss: 3.6704 - F_loss: 2.9260 - D_X_loss: 0.5985 - D_Y_loss: 0.6523 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 37/200
+995/995 - 147s - G_loss: 4.4605 - F_loss: 5.0748 - D_X_loss: 0.5750 - D_Y_loss: 0.4144 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 38/200
+995/995 - 147s - G_loss: 3.1984 - F_loss: 2.7018 - D_X_loss: 0.7829 - D_Y_loss: 0.6930 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 39/200
+995/995 - 147s - G_loss: 3.2844 - F_loss: 3.2682 - D_X_loss: 0.6365 - D_Y_loss: 0.5550 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 40/200
+995/995 - 147s - G_loss: 2.7624 - F_loss: 2.8120 - D_X_loss: 0.8009 - D_Y_loss: 0.9558 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 41/200
+995/995 - 147s - G_loss: 2.5881 - F_loss: 3.4197 - D_X_loss: 0.6275 - D_Y_loss: 0.7187 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 42/200
+995/995 - 147s - G_loss: 2.8975 - F_loss: 3.1016 - D_X_loss: 0.7991 - D_Y_loss: 0.6892 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 43/200
+995/995 - 147s - G_loss: 3.0399 - F_loss: 2.4419 - D_X_loss: 0.4743 - D_Y_loss: 0.3604 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 44/200
+995/995 - 147s - G_loss: 3.9625 - F_loss: 3.6672 - D_X_loss: 0.6159 - D_Y_loss: 0.5424 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 45/200
+995/995 - 147s - G_loss: 3.0113 - F_loss: 2.7358 - D_X_loss: 0.4520 - D_Y_loss: 0.5122 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 46/200
+995/995 - 147s - G_loss: 4.0693 - F_loss: 4.0250 - D_X_loss: 0.5005 - D_Y_loss: 0.5445 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 47/200
+995/995 - 147s - G_loss: 3.5675 - F_loss: 3.3433 - D_X_loss: 0.8410 - D_Y_loss: 0.7038 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 48/200
+995/995 - 147s - G_loss: 2.7121 - F_loss: 2.4242 - D_X_loss: 0.7213 - D_Y_loss: 1.0327 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 49/200
+995/995 - 147s - G_loss: 3.4476 - F_loss: 3.2787 - D_X_loss: 0.6444 - D_Y_loss: 0.5475 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 50/200
+995/995 - 147s - G_loss: 3.9590 - F_loss: 3.2445 - D_X_loss: 0.6466 - D_Y_loss: 0.8940 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 51/200
+995/995 - 147s - G_loss: 3.7449 - F_loss: 3.7806 - D_X_loss: 0.5907 - D_Y_loss: 0.7010 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 52/200
+995/995 - 147s - G_loss: 4.5924 - F_loss: 4.0161 - D_X_loss: 0.7029 - D_Y_loss: 0.6946 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 53/200
+995/995 - 147s - G_loss: 3.3072 - F_loss: 2.7176 - D_X_loss: 0.4128 - D_Y_loss: 0.4216 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 54/200
+995/995 - 147s - G_loss: 2.8470 - F_loss: 2.8673 - D_X_loss: 0.6312 - D_Y_loss: 0.6289 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 55/200
+995/995 - 147s - G_loss: 2.8740 - F_loss: 2.8120 - D_X_loss: 0.2568 - D_Y_loss: 0.3673 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 56/200
+995/995 - 147s - G_loss: 3.4863 - F_loss: 2.4357 - D_X_loss: 0.7158 - D_Y_loss: 0.6011 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 57/200
+995/995 - 147s - G_loss: 2.0955 - F_loss: 1.9370 - D_X_loss: 0.9209 - D_Y_loss: 0.7776 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 58/200
+995/995 - 147s - G_loss: 2.1620 - F_loss: 2.2911 - D_X_loss: 0.7220 - D_Y_loss: 0.6853 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 59/200
+995/995 - 147s - G_loss: 2.8441 - F_loss: 2.7765 - D_X_loss: 0.8232 - D_Y_loss: 0.7385 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 60/200
+995/995 - 147s - G_loss: 3.8443 - F_loss: 3.3547 - D_X_loss: 0.7006 - D_Y_loss: 0.4674 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 61/200
+995/995 - 147s - G_loss: 2.4731 - F_loss: 2.6872 - D_X_loss: 0.7561 - D_Y_loss: 0.8047 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 62/200
+995/995 - 147s - G_loss: 2.8276 - F_loss: 2.9622 - D_X_loss: 0.7738 - D_Y_loss: 0.5735 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 63/200
+995/995 - 147s - G_loss: 3.1952 - F_loss: 3.2805 - D_X_loss: 0.6954 - D_Y_loss: 0.4061 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 64/200
+995/995 - 147s - G_loss: 3.2294 - F_loss: 2.6487 - D_X_loss: 0.4745 - D_Y_loss: 0.5642 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 65/200
+995/995 - 147s - G_loss: 3.1723 - F_loss: 3.0791 - D_X_loss: 0.8121 - D_Y_loss: 0.6938 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 66/200
+995/995 - 147s - G_loss: 3.1519 - F_loss: 2.6806 - D_X_loss: 0.7410 - D_Y_loss: 0.4212 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 67/200
+995/995 - 147s - G_loss: 2.3446 - F_loss: 2.6797 - D_X_loss: 0.4642 - D_Y_loss: 0.6934 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 68/200
+995/995 - 147s - G_loss: 3.5084 - F_loss: 3.3939 - D_X_loss: 0.3842 - D_Y_loss: 0.3832 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 69/200
+995/995 - 147s - G_loss: 2.5735 - F_loss: 2.8817 - D_X_loss: 0.5202 - D_Y_loss: 0.4493 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 70/200
+995/995 - 147s - G_loss: 2.9660 - F_loss: 2.8285 - D_X_loss: 0.9035 - D_Y_loss: 0.8335 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 71/200
+995/995 - 147s - G_loss: 3.0381 - F_loss: 3.2344 - D_X_loss: 0.4273 - D_Y_loss: 0.7437 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 72/200
+995/995 - 147s - G_loss: 3.2602 - F_loss: 3.2583 - D_X_loss: 0.5541 - D_Y_loss: 0.4748 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 73/200
+995/995 - 147s - G_loss: 3.2658 - F_loss: 3.5851 - D_X_loss: 0.7816 - D_Y_loss: 0.5792 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 74/200
+995/995 - 147s - G_loss: 3.1521 - F_loss: 3.4156 - D_X_loss: 0.7504 - D_Y_loss: 0.5375 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 75/200
+995/995 - 147s - G_loss: 3.4002 - F_loss: 2.4977 - D_X_loss: 0.5544 - D_Y_loss: 0.6259 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 76/200
+995/995 - 147s - G_loss: 3.1036 - F_loss: 3.7147 - D_X_loss: 0.4807 - D_Y_loss: 0.5681 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 77/200
+995/995 - 147s - G_loss: 3.2834 - F_loss: 2.9292 - D_X_loss: 0.5603 - D_Y_loss: 0.4514 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 78/200
+995/995 - 147s - G_loss: 2.7472 - F_loss: 3.4620 - D_X_loss: 0.6808 - D_Y_loss: 0.7385 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 79/200
+995/995 - 147s - G_loss: 3.6279 - F_loss: 3.2048 - D_X_loss: 0.4541 - D_Y_loss: 0.4021 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 80/200
+995/995 - 147s - G_loss: 3.7701 - F_loss: 4.2564 - D_X_loss: 0.4352 - D_Y_loss: 0.3162 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 81/200
+995/995 - 147s - G_loss: 2.9187 - F_loss: 2.1175 - D_X_loss: 0.7327 - D_Y_loss: 0.4562 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 82/200
+995/995 - 147s - G_loss: 3.0418 - F_loss: 2.9426 - D_X_loss: 0.4162 - D_Y_loss: 0.5866 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 83/200
+995/995 - 147s - G_loss: 3.6572 - F_loss: 3.1205 - D_X_loss: 0.5634 - D_Y_loss: 0.4478 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 84/200
+995/995 - 147s - G_loss: 4.6591 - F_loss: 3.5787 - D_X_loss: 0.6476 - D_Y_loss: 0.7928 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 85/200
+995/995 - 147s - G_loss: 2.8121 - F_loss: 3.3176 - D_X_loss: 0.2933 - D_Y_loss: 0.4703 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 86/200
+995/995 - 147s - G_loss: 3.0398 - F_loss: 2.5567 - D_X_loss: 0.7775 - D_Y_loss: 0.4432 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 87/200
+995/995 - 147s - G_loss: 2.9531 - F_loss: 3.3942 - D_X_loss: 0.7305 - D_Y_loss: 0.6422 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 88/200
+995/995 - 147s - G_loss: 3.1143 - F_loss: 2.8075 - D_X_loss: 0.6727 - D_Y_loss: 0.7619 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 89/200
+995/995 - 147s - G_loss: 3.2725 - F_loss: 3.1500 - D_X_loss: 0.6787 - D_Y_loss: 0.4001 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 90/200
+995/995 - 147s - G_loss: 3.9234 - F_loss: 4.0066 - D_X_loss: 0.2668 - D_Y_loss: 0.5652 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 91/200
+995/995 - 147s - G_loss: 2.0790 - F_loss: 3.5343 - D_X_loss: 0.8077 - D_Y_loss: 1.0052 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 92/200
+995/995 - 147s - G_loss: 3.2076 - F_loss: 2.9995 - D_X_loss: 0.6090 - D_Y_loss: 0.5806 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 93/200
+995/995 - 147s - G_loss: 3.3459 - F_loss: 3.0356 - D_X_loss: 0.2589 - D_Y_loss: 0.3039 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 94/200
+995/995 - 147s - G_loss: 2.5778 - F_loss: 2.7618 - D_X_loss: 0.4134 - D_Y_loss: 0.4633 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 95/200
+995/995 - 147s - G_loss: 3.1012 - F_loss: 3.1186 - D_X_loss: 0.3811 - D_Y_loss: 0.3303 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 96/200
+995/995 - 147s - G_loss: 3.8062 - F_loss: 2.5658 - D_X_loss: 0.5893 - D_Y_loss: 0.5566 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 97/200
+995/995 - 147s - G_loss: 3.2276 - F_loss: 4.7980 - D_X_loss: 0.8096 - D_Y_loss: 0.8264 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 98/200
+995/995 - 147s - G_loss: 3.4260 - F_loss: 2.6167 - D_X_loss: 0.7065 - D_Y_loss: 0.4488 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 99/200
+995/995 - 147s - G_loss: 2.9984 - F_loss: 3.2424 - D_X_loss: 0.5613 - D_Y_loss: 0.4691 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 100/200
+995/995 - 147s - G_loss: 4.7295 - F_loss: 4.3954 - D_X_loss: 0.5568 - D_Y_loss: 0.1850 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 101/200
+995/995 - 147s - G_loss: 3.9722 - F_loss: 2.8808 - D_X_loss: 1.2917 - D_Y_loss: 0.4782 - lr: 2.0000e-04 - 147s/epoch - 148ms/step
+Epoch 102/200
+995/995 - 147s - G_loss: 3.5797 - F_loss: 3.7159 - D_X_loss: 0.4330 - D_Y_loss: 0.5571 - lr: 1.9800e-04 - 147s/epoch - 148ms/step
+Epoch 103/200
+995/995 - 147s - G_loss: 4.4804 - F_loss: 4.3471 - D_X_loss: 0.6596 - D_Y_loss: 0.2351 - lr: 1.9600e-04 - 147s/epoch - 148ms/step
+Epoch 104/200
+995/995 - 147s - G_loss: 3.2273 - F_loss: 3.9669 - D_X_loss: 0.8498 - D_Y_loss: 0.4047 - lr: 1.9400e-04 - 147s/epoch - 148ms/step
+Epoch 105/200
+995/995 - 147s - G_loss: 3.7543 - F_loss: 3.3944 - D_X_loss: 0.5072 - D_Y_loss: 0.2684 - lr: 1.9200e-04 - 147s/epoch - 148ms/step
+Epoch 106/200
+995/995 - 147s - G_loss: 2.9481 - F_loss: 3.5934 - D_X_loss: 0.6398 - D_Y_loss: 0.5682 - lr: 1.9000e-04 - 147s/epoch - 148ms/step
+Epoch 107/200
+995/995 - 147s - G_loss: 3.6101 - F_loss: 4.2705 - D_X_loss: 0.2705 - D_Y_loss: 0.5145 - lr: 1.8800e-04 - 147s/epoch - 148ms/step
+Epoch 108/200
+995/995 - 147s - G_loss: 2.8238 - F_loss: 2.6836 - D_X_loss: 0.7185 - D_Y_loss: 0.8510 - lr: 1.8600e-04 - 147s/epoch - 148ms/step
+Epoch 109/200
+995/995 - 147s - G_loss: 3.2726 - F_loss: 3.6682 - D_X_loss: 0.8495 - D_Y_loss: 0.7068 - lr: 1.8400e-04 - 147s/epoch - 148ms/step
+Epoch 110/200
+995/995 - 147s - G_loss: 3.4846 - F_loss: 3.2337 - D_X_loss: 0.5706 - D_Y_loss: 0.6169 - lr: 1.8200e-04 - 147s/epoch - 148ms/step
+Epoch 111/200
+995/995 - 147s - G_loss: 4.7637 - F_loss: 4.2241 - D_X_loss: 0.4450 - D_Y_loss: 0.3035 - lr: 1.8000e-04 - 147s/epoch - 148ms/step
+Epoch 112/200
+995/995 - 147s - G_loss: 4.1312 - F_loss: 3.9006 - D_X_loss: 0.1618 - D_Y_loss: 0.4866 - lr: 1.7800e-04 - 147s/epoch - 148ms/step
+Epoch 113/200
+995/995 - 147s - G_loss: 3.8807 - F_loss: 2.7908 - D_X_loss: 0.3213 - D_Y_loss: 0.4384 - lr: 1.7600e-04 - 147s/epoch - 148ms/step
+Epoch 114/200
+995/995 - 147s - G_loss: 3.7875 - F_loss: 3.0402 - D_X_loss: 0.3458 - D_Y_loss: 0.6432 - lr: 1.7400e-04 - 147s/epoch - 148ms/step
+Epoch 115/200
+995/995 - 147s - G_loss: 3.7972 - F_loss: 3.6763 - D_X_loss: 0.3187 - D_Y_loss: 0.4317 - lr: 1.7200e-04 - 147s/epoch - 148ms/step
+Epoch 116/200
+995/995 - 147s - G_loss: 4.2597 - F_loss: 3.7623 - D_X_loss: 0.6581 - D_Y_loss: 0.5562 - lr: 1.7000e-04 - 147s/epoch - 148ms/step
+Epoch 117/200
+995/995 - 147s - G_loss: 2.4843 - F_loss: 2.7104 - D_X_loss: 0.7011 - D_Y_loss: 0.6594 - lr: 1.6800e-04 - 147s/epoch - 148ms/step
+Epoch 118/200
+995/995 - 147s - G_loss: 4.3024 - F_loss: 3.5041 - D_X_loss: 0.7480 - D_Y_loss: 0.5731 - lr: 1.6600e-04 - 147s/epoch - 148ms/step
+Epoch 119/200
+995/995 - 147s - G_loss: 2.8478 - F_loss: 2.5314 - D_X_loss: 0.4276 - D_Y_loss: 0.4629 - lr: 1.6400e-04 - 147s/epoch - 148ms/step
+Epoch 120/200
+995/995 - 147s - G_loss: 3.0741 - F_loss: 3.7137 - D_X_loss: 0.5141 - D_Y_loss: 0.4354 - lr: 1.6200e-04 - 147s/epoch - 148ms/step
+Epoch 121/200
+995/995 - 147s - G_loss: 3.4663 - F_loss: 3.7006 - D_X_loss: 0.6591 - D_Y_loss: 0.4616 - lr: 1.6000e-04 - 147s/epoch - 148ms/step
+Epoch 122/200
+995/995 - 147s - G_loss: 3.6295 - F_loss: 3.4572 - D_X_loss: 0.2767 - D_Y_loss: 0.5727 - lr: 1.5800e-04 - 147s/epoch - 148ms/step
+Epoch 123/200
+995/995 - 147s - G_loss: 3.6459 - F_loss: 3.3539 - D_X_loss: 0.3389 - D_Y_loss: 0.3307 - lr: 1.5600e-04 - 147s/epoch - 148ms/step
+Epoch 124/200
+995/995 - 147s - G_loss: 3.4978 - F_loss: 3.2748 - D_X_loss: 0.5805 - D_Y_loss: 0.6068 - lr: 1.5400e-04 - 147s/epoch - 148ms/step
+Epoch 125/200
+995/995 - 147s - G_loss: 3.3377 - F_loss: 3.3904 - D_X_loss: 0.3221 - D_Y_loss: 0.5182 - lr: 1.5200e-04 - 147s/epoch - 148ms/step
+Epoch 126/200
+995/995 - 147s - G_loss: 2.9693 - F_loss: 4.0296 - D_X_loss: 0.3590 - D_Y_loss: 0.7868 - lr: 1.5000e-04 - 147s/epoch - 148ms/step
+Epoch 127/200
+995/995 - 147s - G_loss: 4.5531 - F_loss: 3.3615 - D_X_loss: 0.3329 - D_Y_loss: 0.2472 - lr: 1.4800e-04 - 147s/epoch - 148ms/step
+Epoch 128/200
+995/995 - 147s - G_loss: 3.1040 - F_loss: 4.4526 - D_X_loss: 0.4623 - D_Y_loss: 0.4775 - lr: 1.4600e-04 - 147s/epoch - 148ms/step
+Epoch 129/200
+995/995 - 147s - G_loss: 3.8975 - F_loss: 3.5919 - D_X_loss: 1.0869 - D_Y_loss: 0.5681 - lr: 1.4400e-04 - 147s/epoch - 148ms/step
+Epoch 130/200
+995/995 - 147s - G_loss: 4.1263 - F_loss: 3.9750 - D_X_loss: 0.3448 - D_Y_loss: 0.2718 - lr: 1.4200e-04 - 147s/epoch - 148ms/step
+Epoch 131/200
+995/995 - 147s - G_loss: 4.0037 - F_loss: 3.7241 - D_X_loss: 0.6958 - D_Y_loss: 0.3637 - lr: 1.4000e-04 - 147s/epoch - 148ms/step
+Epoch 132/200
+995/995 - 147s - G_loss: 3.8449 - F_loss: 3.3056 - D_X_loss: 0.6968 - D_Y_loss: 0.4057 - lr: 1.3800e-04 - 147s/epoch - 148ms/step
+Epoch 133/200
+995/995 - 147s - G_loss: 3.4826 - F_loss: 3.4637 - D_X_loss: 0.2977 - D_Y_loss: 0.5897 - lr: 1.3600e-04 - 147s/epoch - 148ms/step
+Epoch 134/200
+995/995 - 147s - G_loss: 4.2731 - F_loss: 3.8855 - D_X_loss: 0.2973 - D_Y_loss: 0.3054 - lr: 1.3400e-04 - 147s/epoch - 148ms/step
+Epoch 135/200
+995/995 - 147s - G_loss: 4.3010 - F_loss: 2.3320 - D_X_loss: 0.9841 - D_Y_loss: 0.1192 - lr: 1.3200e-04 - 147s/epoch - 148ms/step
+Epoch 136/200
+995/995 - 147s - G_loss: 3.6222 - F_loss: 3.3454 - D_X_loss: 0.2882 - D_Y_loss: 0.6280 - lr: 1.3000e-04 - 147s/epoch - 148ms/step
+Epoch 137/200
+995/995 - 147s - G_loss: 4.1214 - F_loss: 4.5571 - D_X_loss: 0.4692 - D_Y_loss: 0.5034 - lr: 1.2800e-04 - 147s/epoch - 148ms/step
+Epoch 138/200
+995/995 - 147s - G_loss: 3.3635 - F_loss: 3.3753 - D_X_loss: 0.4006 - D_Y_loss: 0.7898 - lr: 1.2600e-04 - 147s/epoch - 148ms/step
+Epoch 139/200
+995/995 - 147s - G_loss: 3.9887 - F_loss: 4.1106 - D_X_loss: 0.4903 - D_Y_loss: 0.5654 - lr: 1.2400e-04 - 147s/epoch - 148ms/step
+Epoch 140/200
+995/995 - 147s - G_loss: 4.5991 - F_loss: 3.8588 - D_X_loss: 0.3147 - D_Y_loss: 0.4210 - lr: 1.2200e-04 - 147s/epoch - 148ms/step
+Epoch 141/200
+995/995 - 147s - G_loss: 5.0674 - F_loss: 3.9056 - D_X_loss: 0.2833 - D_Y_loss: 0.4661 - lr: 1.2000e-04 - 147s/epoch - 148ms/step
+Epoch 142/200
+995/995 - 147s - G_loss: 4.2011 - F_loss: 4.0739 - D_X_loss: 0.4464 - D_Y_loss: 0.7429 - lr: 1.1800e-04 - 147s/epoch - 148ms/step
+Epoch 143/200
+995/995 - 147s - G_loss: 4.1976 - F_loss: 3.7970 - D_X_loss: 0.3077 - D_Y_loss: 0.6083 - lr: 1.1600e-04 - 147s/epoch - 148ms/step
+Epoch 144/200
+995/995 - 147s - G_loss: 3.1196 - F_loss: 3.5153 - D_X_loss: 0.4920 - D_Y_loss: 0.3109 - lr: 1.1400e-04 - 147s/epoch - 148ms/step
+Epoch 145/200
+995/995 - 147s - G_loss: 3.6119 - F_loss: 3.4989 - D_X_loss: 0.5470 - D_Y_loss: 0.5599 - lr: 1.1200e-04 - 147s/epoch - 148ms/step
+Epoch 146/200
+995/995 - 147s - G_loss: 3.7917 - F_loss: 3.0794 - D_X_loss: 0.3299 - D_Y_loss: 0.5585 - lr: 1.1000e-04 - 147s/epoch - 148ms/step
+Epoch 147/200
+995/995 - 147s - G_loss: 4.0629 - F_loss: 3.4511 - D_X_loss: 0.3176 - D_Y_loss: 0.6358 - lr: 1.0800e-04 - 147s/epoch - 148ms/step
+Epoch 148/200
+995/995 - 147s - G_loss: 4.4453 - F_loss: 3.8755 - D_X_loss: 0.4688 - D_Y_loss: 0.2717 - lr: 1.0600e-04 - 147s/epoch - 148ms/step
+Epoch 149/200
+995/995 - 147s - G_loss: 2.9390 - F_loss: 3.3795 - D_X_loss: 0.2977 - D_Y_loss: 0.5099 - lr: 1.0400e-04 - 147s/epoch - 148ms/step
+Epoch 150/200
+995/995 - 147s - G_loss: 3.4730 - F_loss: 3.3396 - D_X_loss: 0.5021 - D_Y_loss: 0.4777 - lr: 1.0200e-04 - 147s/epoch - 148ms/step
+Epoch 151/200
+995/995 - 147s - G_loss: 4.2148 - F_loss: 3.7579 - D_X_loss: 0.8101 - D_Y_loss: 0.2564 - lr: 1.0000e-04 - 147s/epoch - 148ms/step
+Epoch 152/200
+995/995 - 147s - G_loss: 3.9150 - F_loss: 4.4005 - D_X_loss: 0.3262 - D_Y_loss: 0.3581 - lr: 9.8000e-05 - 147s/epoch - 148ms/step
+Epoch 153/200
+995/995 - 147s - G_loss: 3.7053 - F_loss: 2.9681 - D_X_loss: 0.5610 - D_Y_loss: 0.2170 - lr: 9.6000e-05 - 147s/epoch - 148ms/step
+Epoch 154/200
+995/995 - 147s - G_loss: 3.7691 - F_loss: 3.7921 - D_X_loss: 0.4683 - D_Y_loss: 0.2988 - lr: 9.4000e-05 - 147s/epoch - 148ms/step
+Epoch 155/200
+995/995 - 147s - G_loss: 2.7251 - F_loss: 4.5584 - D_X_loss: 0.2824 - D_Y_loss: 1.0058 - lr: 9.2000e-05 - 147s/epoch - 148ms/step
+Epoch 156/200
+995/995 - 147s - G_loss: 3.8240 - F_loss: 3.4800 - D_X_loss: 0.7904 - D_Y_loss: 0.8086 - lr: 9.0000e-05 - 147s/epoch - 148ms/step
+Epoch 157/200
+995/995 - 147s - G_loss: 3.9926 - F_loss: 2.9239 - D_X_loss: 0.4164 - D_Y_loss: 0.6398 - lr: 8.8000e-05 - 147s/epoch - 148ms/step
+Epoch 158/200
+995/995 - 147s - G_loss: 4.7592 - F_loss: 4.9531 - D_X_loss: 0.5801 - D_Y_loss: 0.2534 - lr: 8.6000e-05 - 147s/epoch - 148ms/step
+Epoch 159/200
+995/995 - 147s - G_loss: 3.8063 - F_loss: 3.0035 - D_X_loss: 0.4941 - D_Y_loss: 0.6726 - lr: 8.4000e-05 - 147s/epoch - 148ms/step
+Epoch 160/200
+995/995 - 147s - G_loss: 3.1855 - F_loss: 3.7744 - D_X_loss: 0.5580 - D_Y_loss: 0.6366 - lr: 8.2000e-05 - 147s/epoch - 148ms/step
+Epoch 161/200
+995/995 - 147s - G_loss: 3.7446 - F_loss: 3.3361 - D_X_loss: 0.4912 - D_Y_loss: 0.4932 - lr: 8.0000e-05 - 147s/epoch - 148ms/step
+Epoch 162/200
+995/995 - 147s - G_loss: 4.3374 - F_loss: 3.6589 - D_X_loss: 0.3603 - D_Y_loss: 0.6100 - lr: 7.8000e-05 - 147s/epoch - 148ms/step
+Epoch 163/200
+995/995 - 147s - G_loss: 3.9885 - F_loss: 3.8963 - D_X_loss: 0.4759 - D_Y_loss: 0.3517 - lr: 7.6000e-05 - 147s/epoch - 148ms/step
+Epoch 164/200
+995/995 - 147s - G_loss: 4.5272 - F_loss: 4.3742 - D_X_loss: 0.4600 - D_Y_loss: 0.4981 - lr: 7.4000e-05 - 147s/epoch - 148ms/step
+Epoch 165/200
+995/995 - 147s - G_loss: 3.8683 - F_loss: 4.2241 - D_X_loss: 0.2806 - D_Y_loss: 0.3195 - lr: 7.2000e-05 - 147s/epoch - 148ms/step
+Epoch 166/200
+995/995 - 147s - G_loss: 4.7829 - F_loss: 4.1805 - D_X_loss: 0.4459 - D_Y_loss: 0.3683 - lr: 7.0000e-05 - 147s/epoch - 148ms/step
+Epoch 167/200
+995/995 - 147s - G_loss: 4.4866 - F_loss: 4.5616 - D_X_loss: 0.1369 - D_Y_loss: 0.3619 - lr: 6.8000e-05 - 147s/epoch - 148ms/step
+Epoch 168/200
+995/995 - 147s - G_loss: 3.8466 - F_loss: 4.9480 - D_X_loss: 0.4873 - D_Y_loss: 0.2580 - lr: 6.6000e-05 - 147s/epoch - 148ms/step
+Epoch 169/200
+995/995 - 147s - G_loss: 4.1549 - F_loss: 2.2516 - D_X_loss: 0.7696 - D_Y_loss: 0.3638 - lr: 6.4000e-05 - 147s/epoch - 148ms/step
+Epoch 170/200
+995/995 - 147s - G_loss: 3.4609 - F_loss: 3.3526 - D_X_loss: 0.4654 - D_Y_loss: 0.2938 - lr: 6.2000e-05 - 147s/epoch - 148ms/step
+Epoch 171/200
+995/995 - 147s - G_loss: 4.8965 - F_loss: 4.0009 - D_X_loss: 0.2213 - D_Y_loss: 0.1213 - lr: 6.0000e-05 - 147s/epoch - 148ms/step
+Epoch 172/200
+995/995 - 147s - G_loss: 5.9576 - F_loss: 4.5336 - D_X_loss: 0.3441 - D_Y_loss: 0.6151 - lr: 5.8000e-05 - 147s/epoch - 148ms/step
+Epoch 173/200
+995/995 - 147s - G_loss: 4.2577 - F_loss: 3.5001 - D_X_loss: 0.6513 - D_Y_loss: 0.2602 - lr: 5.6000e-05 - 147s/epoch - 148ms/step
+Epoch 174/200
+995/995 - 147s - G_loss: 4.1382 - F_loss: 2.5737 - D_X_loss: 0.7325 - D_Y_loss: 0.2408 - lr: 5.4000e-05 - 147s/epoch - 148ms/step
+Epoch 175/200
+995/995 - 147s - G_loss: 5.8967 - F_loss: 4.4822 - D_X_loss: 0.5980 - D_Y_loss: 0.3855 - lr: 5.2000e-05 - 147s/epoch - 148ms/step
+Epoch 176/200
+995/995 - 147s - G_loss: 5.8992 - F_loss: 4.5339 - D_X_loss: 0.6310 - D_Y_loss: 0.1533 - lr: 5.0000e-05 - 147s/epoch - 148ms/step
+Epoch 177/200
+995/995 - 147s - G_loss: 4.6392 - F_loss: 4.4598 - D_X_loss: 0.6438 - D_Y_loss: 0.3305 - lr: 4.8000e-05 - 147s/epoch - 148ms/step
+Epoch 178/200
+995/995 - 147s - G_loss: 3.0133 - F_loss: 3.7887 - D_X_loss: 0.4442 - D_Y_loss: 0.5618 - lr: 4.6000e-05 - 147s/epoch - 148ms/step
+Epoch 179/200
+995/995 - 147s - G_loss: 4.7850 - F_loss: 5.6097 - D_X_loss: 0.2891 - D_Y_loss: 0.5173 - lr: 4.4000e-05 - 147s/epoch - 148ms/step
+Epoch 180/200
+995/995 - 147s - G_loss: 4.2419 - F_loss: 4.4767 - D_X_loss: 0.3979 - D_Y_loss: 0.4179 - lr: 4.2000e-05 - 147s/epoch - 148ms/step
+Epoch 181/200
+995/995 - 147s - G_loss: 5.2982 - F_loss: 4.4059 - D_X_loss: 0.5426 - D_Y_loss: 0.1465 - lr: 4.0000e-05 - 147s/epoch - 148ms/step
+Epoch 182/200
+995/995 - 147s - G_loss: 3.4296 - F_loss: 2.6947 - D_X_loss: 0.4768 - D_Y_loss: 0.4703 - lr: 3.8000e-05 - 147s/epoch - 148ms/step
+Epoch 183/200
+995/995 - 147s - G_loss: 5.5040 - F_loss: 3.6156 - D_X_loss: 0.3619 - D_Y_loss: 0.2334 - lr: 3.6000e-05 - 147s/epoch - 148ms/step
+Epoch 184/200
+995/995 - 147s - G_loss: 5.8110 - F_loss: 3.9454 - D_X_loss: 0.4265 - D_Y_loss: 0.2957 - lr: 3.4000e-05 - 147s/epoch - 148ms/step
+Epoch 185/200
+995/995 - 147s - G_loss: 3.2818 - F_loss: 3.3851 - D_X_loss: 0.8919 - D_Y_loss: 0.6620 - lr: 3.2000e-05 - 147s/epoch - 148ms/step
+Epoch 186/200
+995/995 - 147s - G_loss: 4.9614 - F_loss: 4.8603 - D_X_loss: 0.1759 - D_Y_loss: 0.2205 - lr: 3.0000e-05 - 147s/epoch - 148ms/step
+Epoch 187/200
+995/995 - 147s - G_loss: 5.5885 - F_loss: 5.2617 - D_X_loss: 0.1671 - D_Y_loss: 0.2426 - lr: 2.8000e-05 - 147s/epoch - 148ms/step
+Epoch 188/200
+995/995 - 147s - G_loss: 4.6177 - F_loss: 5.3820 - D_X_loss: 0.8238 - D_Y_loss: 0.3085 - lr: 2.6000e-05 - 147s/epoch - 148ms/step
+Epoch 189/200
+995/995 - 147s - G_loss: 5.2881 - F_loss: 3.9418 - D_X_loss: 0.3705 - D_Y_loss: 0.2666 - lr: 2.4000e-05 - 147s/epoch - 148ms/step
+Epoch 190/200
+995/995 - 147s - G_loss: 3.8044 - F_loss: 3.6596 - D_X_loss: 0.3350 - D_Y_loss: 0.6532 - lr: 2.2000e-05 - 147s/epoch - 148ms/step
+Epoch 191/200
+995/995 - 147s - G_loss: 5.8694 - F_loss: 5.3048 - D_X_loss: 0.6051 - D_Y_loss: 0.3165 - lr: 2.0000e-05 - 147s/epoch - 148ms/step
+Epoch 192/200
+995/995 - 147s - G_loss: 6.1173 - F_loss: 4.2427 - D_X_loss: 0.3194 - D_Y_loss: 0.3782 - lr: 1.8000e-05 - 147s/epoch - 148ms/step
+Epoch 193/200
+995/995 - 147s - G_loss: 5.0695 - F_loss: 5.8030 - D_X_loss: 0.5621 - D_Y_loss: 0.4456 - lr: 1.6000e-05 - 147s/epoch - 148ms/step
+Epoch 194/200
+995/995 - 147s - G_loss: 3.8716 - F_loss: 3.7814 - D_X_loss: 0.4559 - D_Y_loss: 0.5430 - lr: 1.4000e-05 - 147s/epoch - 148ms/step
+Epoch 195/200
+995/995 - 147s - G_loss: 4.9050 - F_loss: 3.8330 - D_X_loss: 0.2717 - D_Y_loss: 0.3730 - lr: 1.2000e-05 - 147s/epoch - 148ms/step
+Epoch 196/200
+995/995 - 147s - G_loss: 4.3415 - F_loss: 4.4266 - D_X_loss: 0.1369 - D_Y_loss: 0.5095 - lr: 1.0000e-05 - 147s/epoch - 148ms/step
+Epoch 197/200
+995/995 - 147s - G_loss: 5.0344 - F_loss: 4.4012 - D_X_loss: 0.2975 - D_Y_loss: 0.1333 - lr: 8.0000e-06 - 147s/epoch - 148ms/step
+Epoch 198/200
+995/995 - 147s - G_loss: 5.2637 - F_loss: 4.6287 - D_X_loss: 0.3463 - D_Y_loss: 0.1625 - lr: 6.0000e-06 - 147s/epoch - 148ms/step
+Epoch 199/200
+995/995 - 147s - G_loss: 4.9684 - F_loss: 4.2496 - D_X_loss: 0.1357 - D_Y_loss: 0.3630 - lr: 4.0000e-06 - 147s/epoch - 148ms/step
+Epoch 200/200
+995/995 - 147s - G_loss: 5.2481 - F_loss: 3.9376 - D_X_loss: 0.5126 - D_Y_loss: 0.6709 - lr: 2.0000e-06 - 147s/epoch - 148ms/step
+/home/jglane/.conda/envs/cent7/2020.11-py38/my_tf_env/lib/python3.8/site-packages/tensorflow_addons/utils/tfa_eol_msg.py:23: UserWarning: 
+
+TensorFlow Addons (TFA) has ended development and introduction of new features.
+TFA has entered a minimal maintenance and release mode until a planned end of life in May 2024.
+Please modify downstream libraries to take dependencies from other repositories in our TensorFlow community (e.g. Keras, Keras-CV, and Keras-NLP). 
+
+For more information see: https://github.com/tensorflow/addons/issues/2807 
+
+  warnings.warn(
+/home/jglane/.conda/envs/cent7/2020.11-py38/my_tf_env/lib/python3.8/site-packages/keras/backend.py:5703: UserWarning: "`binary_crossentropy` received `from_logits=True`, but the `output` argument was produced by a Sigmoid activation and thus does not represent logits. Was this intended?
+  output, from_logits = _get_logits(
+WARNING:tensorflow:Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.
+WARNING:tensorflow:Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.
+2023-04-21 21:37:38.630683: I tensorflow/core/common_runtime/executor.cc:1197] [/device:CPU:0] (DEBUG INFO) Executor start aborting (this does not indicate an error and you can ignore this message): INVALID_ARGUMENT: You must feed a value for placeholder tensor 'inputs' with dtype float and shape [?,?,?,256]
+	 [[{{node inputs}}]]
+2023-04-21 21:37:38.649237: I tensorflow/core/common_runtime/executor.cc:1197] [/device:CPU:0] (DEBUG INFO) Executor start aborting (this does not indicate an error and you can ignore this message): INVALID_ARGUMENT: You must feed a value for placeholder tensor 'inputs' with dtype float and shape [?,?,?,128]
+	 [[{{node inputs}}]]
+2023-04-21 21:37:39.885487: I tensorflow/core/common_runtime/executor.cc:1197] [/device:CPU:0] (DEBUG INFO) Executor start aborting (this does not indicate an error and you can ignore this message): INVALID_ARGUMENT: You must feed a value for placeholder tensor 'inputs' with dtype float and shape [?,?,?,256]
+	 [[{{node inputs}}]]
+2023-04-21 21:37:39.928048: I tensorflow/core/common_runtime/executor.cc:1197] [/device:CPU:0] (DEBUG INFO) Executor start aborting (this does not indicate an error and you can ignore this message): INVALID_ARGUMENT: You must feed a value for placeholder tensor 'inputs' with dtype float and shape [?,?,?,128]
+	 [[{{node inputs}}]]
+WARNING:absl:Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 5 of 24). These functions will not be directly callable after loading.
+WARNING:tensorflow:Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.
+WARNING:tensorflow:Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.
+2023-04-21 21:37:41.722737: I tensorflow/core/common_runtime/executor.cc:1197] [/device:CPU:0] (DEBUG INFO) Executor start aborting (this does not indicate an error and you can ignore this message): INVALID_ARGUMENT: You must feed a value for placeholder tensor 'inputs' with dtype float and shape [?,?,?,256]
+	 [[{{node inputs}}]]
+2023-04-21 21:37:41.741071: I tensorflow/core/common_runtime/executor.cc:1197] [/device:CPU:0] (DEBUG INFO) Executor start aborting (this does not indicate an error and you can ignore this message): INVALID_ARGUMENT: You must feed a value for placeholder tensor 'inputs' with dtype float and shape [?,?,?,128]
+	 [[{{node inputs}}]]
+2023-04-21 21:37:42.945431: I tensorflow/core/common_runtime/executor.cc:1197] [/device:CPU:0] (DEBUG INFO) Executor start aborting (this does not indicate an error and you can ignore this message): INVALID_ARGUMENT: You must feed a value for placeholder tensor 'inputs' with dtype float and shape [?,?,?,256]
+	 [[{{node inputs}}]]
+2023-04-21 21:37:42.987961: I tensorflow/core/common_runtime/executor.cc:1197] [/device:CPU:0] (DEBUG INFO) Executor start aborting (this does not indicate an error and you can ignore this message): INVALID_ARGUMENT: You must feed a value for placeholder tensor 'inputs' with dtype float and shape [?,?,?,128]
+	 [[{{node inputs}}]]
+WARNING:absl:Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 5 of 24). These functions will not be directly callable after loading.

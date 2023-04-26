@@ -1,4 +1,4 @@
 __pycache__
 old
 *.sub
-*.out
+slurm-*.out

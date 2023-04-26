@@ -15,12 +15,12 @@ def random_jitter(img: tf.Tensor):
         img = tf.image.flip_left_right(img)
     return img
 
-def preprocess_image_train(img, label):
+def preprocess_image_train(img, label=None):
     img = resize_and_normalize(img)
     img = random_jitter(img)
     return img
 
-def preprocess_image_test(img, label):
+def preprocess_image_test(img, label=None):
     img = resize_and_normalize(img)
     return img
 
