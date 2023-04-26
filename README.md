@@ -1,6 +1,6 @@
 # Getting Started
 
-![](results/summer2winter_yosemite_0/train.gif)
+<img src="results/summer2winter_yosemite_0/train.gif">
 
 ## Train a model
 To train a model, run the following command:
