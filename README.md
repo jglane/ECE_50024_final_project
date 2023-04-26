@@ -1,6 +1,6 @@
 # Getting Started
 
-<video src="results/apple2orange_0/train.mp4">
+![](results/apple2orange_0/train.mp4)
 
 ## Train a model
 To train a model, run the following command:
