@@ -88,6 +88,4 @@ for img in imgs:
     img_array = plt.imread(f'{results_dir}/img/{img}') * 255
     frames.append(img_array.astype('uint8'))
 
-with imageio.get_writer(f'{results_dir}/train.gif', mode='I') as writer:
-    for frame in frames:
-        writer.append_data(frame)
+imageio.mimsave(f'{results_dir}/train.mp4', frames, fps=20)

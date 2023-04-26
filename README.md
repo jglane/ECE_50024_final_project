@@ -1,6 +1,6 @@
 # Getting Started
 
-<img src="results/summer2winter_yosemite_0/train.gif">
+<video src="results/apple2orange_0/train.mp4">
 
 ## Train a model
 To train a model, run the following command:
@@ -21,7 +21,7 @@ where `DATASET_NAME` is the name of the dataset you want train on. The dataset c
 
 If you want to train on a custom dataset, you can create one using the `scrape_images.py` script. See the section below for more information.
 
-When `train.py` is run, new folder will be created in `results` containing the trained model and the training history.
+When `train.py` is run, a new folder will be created in `results` containing the trained model and the training history.
 
 ## Create a new dataset
 Suppose we want to create a new dataset containing images of tigers and lions. We can do this by running the following command:
