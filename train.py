@@ -17,7 +17,7 @@ for gpu in gpus:
 
 IMG_DIM = 256
 DATASET = sys.argv[1]
-CYCLEGAN_DATASETS = ['apple2orange', 'summer2winter_yosemite', 'horse2zebra', 'monet2photo', 'cezanne2photo', 'ukiyoe2photo', 'vangogh2photo', 'maps', 'cityscapes', 'facades']
+CYCLEGAN_DATASETS = ['apple2orange', 'summer2winter_yosemite', 'horse2zebra', 'monet2photo', 'cezanne2photo', 'ukiyoe2photo', 'vangogh2photo', 'maps', 'facades']
 
 # Load dataset from cyclegan if it exists, otherwise load from local directory
 if DATASET in CYCLEGAN_DATASETS:
@@ -59,9 +59,9 @@ os.mkdir(results_dir)
 os.mkdir(f'{results_dir}/img')
 
 # Train the model
-lambd = 10
+LAMBDA = 10
 cycleGAN = CycleGAN(G, F, D_X, D_Y)
-cycleGAN.compile(G_opt, F_opt, D_X_opt, D_Y_opt, GeneratorLoss(), DiscriminatorLoss(), CycleLoss(lambd), IdentityLoss(lambd))
+cycleGAN.compile(G_opt, F_opt, D_X_opt, D_Y_opt, GeneratorLoss(), DiscriminatorLoss(), CycleLoss(LAMBDA), IdentityLoss(LAMBDA))
 hist = cycleGAN.fit(tf.data.Dataset.zip((ds_train_A, ds_train_B)), epochs=200, verbose=2,
                     callbacks=[
                         GenSameImg(f'tests/{DATASET}', results_dir),
@@ -81,11 +81,11 @@ plt.savefig(f'{results_dir}/loss.png')
 G.save(f'{results_dir}/G')
 F.save(f'{results_dir}/F')
 
-# Make a video of the training process
+# Make a gif of the training process
 frames = []
 imgs = sorted(os.listdir(f'{results_dir}/img'), key=lambda x: int(re.sub('\D', '', x)))
 for img in imgs:
     img_array = plt.imread(f'{results_dir}/img/{img}') * 255
     frames.append(img_array.astype('uint8'))
 
-imageio.mimsave(f'{results_dir}/train.mp4', frames, fps=20)
+imageio.mimsave(f'{results_dir}/train.gif', frames, 'GIF', duration=0.1)

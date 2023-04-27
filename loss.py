@@ -32,4 +32,4 @@ class IdentityLoss(tf.keras.losses.Loss):
         self.lambd = lambd
     
     def call(self, real, same):
-        return self.lambd * tf.reduce_mean(tf.abs(real - same)) / 2
+        return 0.5 * self.lambd * tf.reduce_mean(tf.abs(real - same))

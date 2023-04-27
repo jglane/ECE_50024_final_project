@@ -125,8 +125,8 @@ class CycleGAN(tf.keras.Model):
 
             # Calculate the loss
             total_cycle_loss = self.cycle_loss(real_X, cycled_X) + self.cycle_loss(real_Y, cycled_Y)
-            G_loss = self.generator_loss(D_Y_fake, tf.ones_like(D_Y_fake)) + self.identity_loss(real_Y, same_Y) + total_cycle_loss
-            F_loss = self.generator_loss(D_X_fake, tf.ones_like(D_X_fake)) + self.identity_loss(real_X, same_X) + total_cycle_loss
+            G_loss = total_cycle_loss + self.generator_loss(D_Y_fake, tf.ones_like(D_Y_fake)) + self.identity_loss(real_Y, same_Y)
+            F_loss = total_cycle_loss + self.generator_loss(D_X_fake, tf.ones_like(D_X_fake)) + self.identity_loss(real_X, same_X)
 
             D_X_loss = self.discriminator_loss(D_X_real, D_X_fake)
             D_Y_loss = self.discriminator_loss(D_Y_real, D_Y_fake)
