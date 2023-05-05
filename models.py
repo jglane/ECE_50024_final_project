@@ -2,14 +2,23 @@ import tensorflow as tf
 import tensorflow_addons as tfa
 
 class Residual(tf.keras.Model):
-    def __init__(self, filters, kernel_size, strides, padding='same', activation='relu'):
+    def __init__(self, filters, kernel_size, strides, padding='same'):
         super(Residual, self).__init__()
-        self.conv1 = tf.keras.layers.Conv2D(filters, kernel_size, strides, padding, activation=activation)
-        self.conv2 = tf.keras.layers.Conv2D(filters, kernel_size, strides, padding)
+        self.conv1 = tf.keras.layers.Conv2D(filters=filters, kernel_size=kernel_size, strides=strides, padding=padding)
+        self.conv2 = tf.keras.layers.Conv2D(filters=filters, kernel_size=kernel_size, strides=strides, padding=padding)
+        self.norm1 = tfa.layers.InstanceNormalization(axis=-1)
+        self.norm2 = tfa.layers.InstanceNormalization(axis=-1)
 
     def call(self, inputs):
+        if inputs.shape[-1] != self.conv2.filters:
+            print('Residual block input and output channels do not match')
+            exit()
+        
         x = self.conv1(inputs)
+        x = self.norm1(x)
+        x = tf.keras.layers.ReLU()(x)
         x = self.conv2(x)
+        x = self.norm2(x)
         out = tf.keras.layers.add([x, inputs])
         return tf.keras.layers.ReLU()(out)
     
@@ -19,17 +28,17 @@ def build_generator(IMG_DIM=256):
 
     # c7s1-64
     model.add(tf.keras.layers.Conv2D(filters=64, kernel_size=7, strides=1, padding='same'))
-    model.add(tfa.layers.InstanceNormalization())
+    model.add(tfa.layers.InstanceNormalization(axis=-1))
     model.add(tf.keras.layers.ReLU())
 
     # d128
     model.add(tf.keras.layers.Conv2D(filters=128, kernel_size=3, strides=2, padding='same'))
-    model.add(tfa.layers.InstanceNormalization())
+    model.add(tfa.layers.InstanceNormalization(axis=-1))
     model.add(tf.keras.layers.ReLU())
 
     # d256
     model.add(tf.keras.layers.Conv2D(filters=256, kernel_size=3, strides=2, padding='same'))
-    model.add(tfa.layers.InstanceNormalization())
+    model.add(tfa.layers.InstanceNormalization(axis=-1))
     model.add(tf.keras.layers.ReLU())
     
     # 9 x R256
@@ -45,12 +54,12 @@ def build_generator(IMG_DIM=256):
 
     # u128
     model.add(tf.keras.layers.Conv2DTranspose(filters=128, kernel_size=3, strides=2, padding='same'))
-    model.add(tfa.layers.InstanceNormalization())
+    model.add(tfa.layers.InstanceNormalization(axis=-1))
     model.add(tf.keras.layers.ReLU())
 
     # u64
     model.add(tf.keras.layers.Conv2DTranspose(filters=64, kernel_size=3, strides=2, padding='same'))
-    model.add(tfa.layers.InstanceNormalization())
+    model.add(tfa.layers.InstanceNormalization(axis=-1))
     model.add(tf.keras.layers.ReLU())
 
     # c7s1-3
@@ -68,17 +77,17 @@ def build_discriminator(IMG_DIM=256):
 
     # C128
     model.add(tf.keras.layers.Conv2D(filters=128, kernel_size=4, strides=2))
-    model.add(tfa.layers.InstanceNormalization())
+    model.add(tfa.layers.InstanceNormalization(axis=-1))
     model.add(tf.keras.layers.LeakyReLU(0.2))
     
     # C256
     model.add(tf.keras.layers.Conv2D(filters=256, kernel_size=4, strides=2))
-    model.add(tfa.layers.InstanceNormalization())
+    model.add(tfa.layers.InstanceNormalization(axis=-1))
     model.add(tf.keras.layers.LeakyReLU(0.2))
     
     # C512
     model.add(tf.keras.layers.Conv2D(filters=512, kernel_size=4, strides=2))
-    model.add(tfa.layers.InstanceNormalization())
+    model.add(tfa.layers.InstanceNormalization(axis=-1))
     model.add(tf.keras.layers.LeakyReLU(0.2))
 
     # Convolution to produce a 1D output
@@ -146,3 +155,7 @@ class CycleGAN(tf.keras.Model):
         self.D_Y_opt.apply_gradients(zip(D_Y_grad, self.D_Y.trainable_variables))
 
         return {'G_loss': G_loss, 'F_loss': F_loss, 'D_X_loss': D_X_loss, 'D_Y_loss': D_Y_loss}
+    
+if __name__ == '__main__':
+    tf.keras.utils.plot_model(build_generator(), to_file='generator.png', show_shapes=True, show_layer_names=False, dpi=64)
+    tf.keras.utils.plot_model(build_discriminator(), to_file='discriminator.png', show_shapes=True, show_layer_names=False, dpi=64)

@@ -28,7 +28,11 @@ else:
     print(f'No dataset found for {DATASET}')
     exit()
 
-# show a few images
+# Create a directory to save the tests
+if not os.path.exists(f'tests/{DATASET}'):
+    os.mkdir(f'tests/{DATASET}')
+
+# Show a few images
 for i, img in enumerate(ds_test_A.take(10)):
     plt.imsave(f'tests/{DATASET}/A{i}.jpg', img[0].numpy() * 0.5 + 0.5)
 

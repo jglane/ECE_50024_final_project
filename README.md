@@ -46,9 +46,6 @@ $ /path/to/python train.py tiger2lion
 ## Test a model
 To test a model, run the following command:
 ```bash
-$ /path/to/python test.py MODEL_DIR
+$ /path/to/python test.py MODEL_DIR NUM_IMAGES
 ```
-where `MODEL_DIR` is the path to the model directory, usually within the `results` directory.
-
-## Notes DELETE LATER
-Tried a couple of times without identity loss but it was worse
+where `MODEL_DIR` is the name of the directory that contains the model within `results`. A directory called `tests` will be created within `MODEL_DIR` containing the generated images. `NUM_IMAGES` is the number of images to generate.

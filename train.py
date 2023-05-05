@@ -17,17 +17,14 @@ for gpu in gpus:
 
 IMG_DIM = 256
 DATASET = sys.argv[1]
-CYCLEGAN_DATASETS = ['apple2orange', 'summer2winter_yosemite', 'horse2zebra', 'monet2photo', 'cezanne2photo', 'ukiyoe2photo', 'vangogh2photo', 'maps', 'facades']
+CYCLEGAN_DATASETS = ['apple2orange', 'summer2winter_yosemite', 'horse2zebra', 'monet2photo', 'cezanne2photo', 'ukiyoe2photo', 'vangogh2photo', 'facades']
 
 # Load dataset from cyclegan if it exists, otherwise load from local directory
 if DATASET in CYCLEGAN_DATASETS:
     ds, ds_info = tfds.load(f'cycle_gan/{DATASET}', with_info=True, as_supervised=True)
 
-    ds_train_A = ds['trainA']
-    ds_train_B = ds['trainB']
-    
-    ds_train_A = ds_train_A.map(preprocess_image_train, num_parallel_calls=tf.data.experimental.AUTOTUNE).shuffle(ds_info.splits['trainA'].num_examples).batch(1)
-    ds_train_B = ds_train_B.map(preprocess_image_train, num_parallel_calls=tf.data.experimental.AUTOTUNE).shuffle(ds_info.splits['trainB'].num_examples).batch(1)
+    ds_train_A = ds['trainA'].map(preprocess_image_train, num_parallel_calls=tf.data.experimental.AUTOTUNE).shuffle(ds_info.splits['trainA'].num_examples).batch(1)
+    ds_train_B = ds['trainB'].map(preprocess_image_train, num_parallel_calls=tf.data.experimental.AUTOTUNE).shuffle(ds_info.splits['trainB'].num_examples).batch(1)
 elif os.path.exists(f'data/{DATASET}'):
     ds_train_A = tf.keras.preprocessing.image_dataset_from_directory(f'data/{DATASET}/trainA', image_size=(IMG_DIM, IMG_DIM), batch_size=None, label_mode=None)
     ds_train_B = tf.keras.preprocessing.image_dataset_from_directory(f'data/{DATASET}/trainB', image_size=(IMG_DIM, IMG_DIM), batch_size=None, label_mode=None)
@@ -45,10 +42,10 @@ D_X = build_discriminator(IMG_DIM)
 D_Y = build_discriminator(IMG_DIM)
 
 # Initialize optimizers
-G_opt = tf.keras.optimizers.Adam(learning_rate=0.0002, beta_1=0.5)
-F_opt = tf.keras.optimizers.Adam(learning_rate=0.0002, beta_1=0.5)
-D_X_opt = tf.keras.optimizers.Adam(learning_rate=0.0002, beta_1=0.5)
-D_Y_opt = tf.keras.optimizers.Adam(learning_rate=0.0002, beta_1=0.5)
+G_opt = tf.keras.optimizers.Adam(learning_rate=0.00002, beta_1=0.5)
+F_opt = tf.keras.optimizers.Adam(learning_rate=0.00002, beta_1=0.5)
+D_X_opt = tf.keras.optimizers.Adam(learning_rate=0.00002, beta_1=0.5)
+D_Y_opt = tf.keras.optimizers.Adam(learning_rate=0.00002, beta_1=0.5)
 
 # Create a directory to save the results
 i = 0
@@ -58,14 +55,19 @@ results_dir = f'results/{DATASET}_{i}'
 os.mkdir(results_dir)
 os.mkdir(f'{results_dir}/img')
 
+# Check if test images exist
+if not (os.path.exists(f'tests/{DATASET}/A.jpg') and os.path.exists(f'tests/{DATASET}/B.jpg')):
+    print(f'No test images found for {DATASET}, please run select_test_images.py first')
+    exit()
+
 # Train the model
 LAMBDA = 10
 cycleGAN = CycleGAN(G, F, D_X, D_Y)
 cycleGAN.compile(G_opt, F_opt, D_X_opt, D_Y_opt, GeneratorLoss(), DiscriminatorLoss(), CycleLoss(LAMBDA), IdentityLoss(LAMBDA))
-hist = cycleGAN.fit(tf.data.Dataset.zip((ds_train_A, ds_train_B)), epochs=200, verbose=2,
+hist = cycleGAN.fit(tf.data.Dataset.zip((ds_train_A, ds_train_B)), epochs=100, verbose=2,
                     callbacks=[
                         GenSameImg(f'tests/{DATASET}', results_dir),
-                        tf.keras.callbacks.LearningRateScheduler(lambda epoch: 0.0002 if epoch < 100 else 0.0002 - 0.0002 * (epoch - 100) / 100)
+                        tf.keras.callbacks.LearningRateScheduler(lambda epoch: 0.0002 if epoch < 50 else 0.0002 - 0.0002 * (epoch - 50) / 50)
                     ])
 
 # Plot the loss
